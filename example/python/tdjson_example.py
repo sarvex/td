@@ -80,8 +80,7 @@ td_send({'@type': 'getOption', 'name': 'version', '@extra': 1.01234})
 
 # main events cycle
 while True:
-    event = td_receive()
-    if event:
+    if event := td_receive():
         # process authorization states
         if event['@type'] == 'updateAuthorizationState':
             auth_state = event['authorization_state']
